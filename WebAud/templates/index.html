@@ -1,0 +1,36 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    Shush Dog
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %}
+        <center>
+        <h1>Shush Beans!</h1>
+        <form method="post" action="/">
+            <button type="submit" class="btn btn-primary btn-lg btn-block" value="shush" name="shush">Shush!</button>
+        </div>
+        </form>
+        <p/>
+        <br/>
+        <div class="text-center">
+        <img class="col-sm-7 col-sm-offset-2 img-rounded " height=100% width=100% src="{{ url_for('static',
+            filename='beans.gif') }}">
+        </div>
+        </center>
+        {% endblock %}
+    </div>
+{% endblock %}
+
+
